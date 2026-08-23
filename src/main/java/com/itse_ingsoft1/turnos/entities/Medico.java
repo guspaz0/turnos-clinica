@@ -4,9 +4,12 @@ import lombok.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
+@Builder
 public class Medico {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +22,10 @@ public class Medico {
   @JoinColumn
   private Persona persona;
 
-  @OneToMany
-  @Column
-  private JornadaLaboral jornadasLaborales;
+  @ManyToOne
+  @JoinColumn
+  private Consultorio consultorio;
+
+  @OneToMany(mappedBy = "medico")
+  private Set<JornadaLaboral> jornadasLaborales = new HashSet<>();
 }

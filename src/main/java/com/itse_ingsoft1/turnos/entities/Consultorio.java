@@ -7,11 +7,15 @@ package com.itse_ingsoft1.turnos.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author gusta
  */
 @Entity
 @Data
+@Builder
 public class Consultorio {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +24,6 @@ public class Consultorio {
   @Column
   private String descripcion;
 
-  @ManyToMany
-  @JoinColumn
-  private Medico medicos;
-
-  @OneToMany
-  @JoinColumn
-  private Turno turnos;
+  @OneToMany(mappedBy = "consultorio")
+  private Set<Medico> medicos = new HashSet<>();
 }

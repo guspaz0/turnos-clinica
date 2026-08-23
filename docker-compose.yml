@@ -1,0 +1,12 @@
+services:
+  app-turnos:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    image: openjdk21
+    container_name: backend
+    mem_limit: 512m
+    env_file:
+      - .env
+    ports:
+      - 9091:9091

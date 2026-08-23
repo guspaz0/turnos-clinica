@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.itse_ingsoft1.turnos.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.*;
 
+import com.itse_ingsoft1.turnos.utiles.EstadoCita;
+
 /**
  *
  * @author gusta
  */
+
 @Entity
 @Data
-public class Turno {
+@Builder
+public class Cita {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -24,6 +24,9 @@ public class Turno {
 
   @Column
   private LocalDateTime fechaHoraFin;
+
+  @Column
+  private EstadoCita estado;
 
   @Column
   private LocalDateTime createdAt;
@@ -41,5 +44,9 @@ public class Turno {
   @OneToOne
   @JoinColumn
   private Consultorio consultorio;
+
+  @ManyToOne
+  @JoinColumn
+  private Paciente paciente;
 
 }

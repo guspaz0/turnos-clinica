@@ -19,6 +19,6 @@ public class Persona {
   private String apellido;
 
   @Column
-  private LocalDate fecha;
+  private LocalDate fechaNacimiento;
 
 }

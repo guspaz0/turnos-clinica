@@ -20,5 +20,6 @@ public class Medico {
   private Persona persona;
 
   @OneToMany
-  private Turno turnos;
+  @Column
+  private JornadaLaboral jornadasLaborales;
 }

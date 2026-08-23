@@ -3,22 +3,20 @@ package com.itse_ingsoft1.turnos.entities;
 import lombok.*;
 import jakarta.persistence.*;
 
+import java.time.LocalTime;
 import java.time.LocalDate;
 
 @Entity
 @Data
-public class Medico {
+public class JornadaLaboral {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column
-  private String especialidad;
+  private String descripcion;
 
-  @OneToOne
-  @JoinColumn
-  private Persona persona;
+  @Column
+  private LocalDate fecha;
 
-  @OneToMany
-  private Turno turnos;
 }

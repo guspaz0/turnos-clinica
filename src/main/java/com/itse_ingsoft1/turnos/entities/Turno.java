@@ -7,6 +7,7 @@ package com.itse_ingsoft1.turnos.entities;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.*;
+
 /**
  *
  * @author gusta
@@ -14,31 +15,31 @@ import lombok.*;
 @Entity
 @Data
 public class Turno {
-    @Id
-    @GeneratedValue
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column
-    private LocalDateTime fechaHoraInicio;
-    
-    @Column 
-    private LocalDateTime fechaHoraFin;
-    
-    @Column
-    private LocalDateTime createdAt;
-    
-    @Column
-    private LocalDateTime updatedAt;
-    
-    @Column
-    private LocalDateTime deletedAt;
-    
-    @OneToOne
-    @JoinColumn
-    private Persona persona;
-    
-    @OneToOne
-    @JoinColumn
-    private Consultorio consultorio;
-    
+  @Column
+  private LocalDateTime fechaHoraInicio;
+
+  @Column
+  private LocalDateTime fechaHoraFin;
+
+  @Column
+  private LocalDateTime createdAt;
+
+  @Column
+  private LocalDateTime updatedAt;
+
+  @Column
+  private LocalDateTime deletedAt;
+
+  @OneToOne
+  @JoinColumn
+  private Persona persona;
+
+  @OneToOne
+  @JoinColumn
+  private Consultorio consultorio;
+
 }

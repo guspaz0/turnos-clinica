@@ -6,24 +6,25 @@ package com.itse_ingsoft1.turnos.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 /**
  * @author gusta
  */
 @Entity
 @Data
 public class Consultorio {
-    @Id
-    @GeneratedValue
-    private Long id;
-    
-    @Column
-    private String descripcion;
-    
-    @ManyToMany
-    @JoinColumn
-    private Medico medicos;
-    
-    @ManyToMany
-    @JoinColumn
-    private Turno turnos;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @Column
+  private String descripcion;
+
+  @ManyToMany
+  @JoinColumn
+  private Medico medicos;
+
+  @OneToMany
+  @JoinColumn
+  private Turno turnos;
 }
